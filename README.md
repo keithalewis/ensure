@@ -9,4 +9,4 @@ While developing code `#define DEBUG_BREAK` to have the debugger plop you exactl
 
 If you don't define `DEBUG_BREAK` then a `std::runtime_exception` will be thrown with an error string containg the file, line, and exprssion that failed.
 
-Pro tip: use `ensure(e || !"helpful static string message")` to communicate "helpful static string message" to a human being.
+Pro tip: use `ensure(e || !"helpful static string message")` to communicate "helpful static string message" to a human being that might be able to fix the code after you have moved on.
