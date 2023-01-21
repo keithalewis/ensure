@@ -1,6 +1,7 @@
 // ensure.h - assert replacement that throws instead of calling abort()
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 // #define NENSURE before including to turn ensure checking off
+// #define DEBUG_BREAK to halt the debugger instead of throwing an exception
 #pragma once
 #include <stdexcept>
 
@@ -10,6 +11,11 @@
 #endif
 
 #ifndef ensure
+
+#ifndef _WIN32
+#define DebugBreak __builtin_trap
+#define __FUNCTION__ __func__
+#endif
 
 #define ENSURE_HASH_(x) #x
 #define ENSURE_STRZ_(x) ENSURE_HASH_(x)
